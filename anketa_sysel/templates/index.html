@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Anketa</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #333; 
+                color: #fff;
+                margin: 0;
+                padding: 0;
+            }
+    
+            header {
+                background-color: #800080; 
+                color: #fff;
+                text-align: center;
+                padding: 20px;
+            }
+    
+            h1 {
+                margin-bottom: 20px;
+            }
+    
+            form {
+                background-color: #555; 
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
+                margin: 20px auto;
+                max-width: 600px;
+            }
+    
+            form input[type="submit"] {
+                background-color: #800080;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+    
+            #logo-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+            #logo-container img {
+                height: 40px;
+                margin-right: 10px;
+            }
+        </style>
+    </head>    
+<body>
+    <header>
+        <div id="logo-container">
+          <img src="{{ url_for('static', filename='bmw_logo.png') }}" alt="BMW Logo">
+          <img src="{{ url_for('static', filename='mercedes_logo.png') }}" alt="Mercedes Logo">
+          <img src="{{ url_for('static', filename='audi_logo.png') }}" alt="Audi Logo">
+        </div>
+        <h1>Anketa</h1>
+    </header>
+    
+    <form method='post'>
+        {{ form.hidden_tag() }}
+        {{ form.hlas }}
+        <input type="submit" value="Hlasuj">
+    </form>
+</body>
+</html>
